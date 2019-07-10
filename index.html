@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="app">
-    <h1>Titulo {{h1_Texto}}</h1>
+    <h1>{{h1_Texto}}</h1>
     <label>{{label_Fruta}}
         <input type="text" v-model="Nueva_Fruta" v-on:keyup.enter="agregar_Fruta"/>
     </label>
@@ -29,7 +29,7 @@
             <span v-if="item.cantidad < 1"> - Fruta SIN Stock</span>
         </li>
     </ul>
-    <h4>Total: {{sumarFrutas}} - Total: {{total}}</h4>
+    <h4>Total: {{sumarFrutas}} - Variable Total: {{total}}</h4>
 </div>
 <!-- development version, includes helpful console warnings -->
 <!-- production version, optimized for size and speed -->
