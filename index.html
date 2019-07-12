@@ -16,7 +16,8 @@
             <label :class="['text-info']">{{label_Fruta}}
                 <input type="text" :class="['bg-danger']" v-model="Nueva_Fruta" v-on:keyup.enter="agregar_Fruta"/>
             </label>
-            <button id="B_Nueva_Fruta" v-on:click="agregar_Fruta" :class="['btn btn-info']">{{label_Fruta_Boton}}</button>
+            <button id="B_Nueva_Fruta" v-on:click="agregar_Fruta" :class="['btn btn-info']">{{label_Fruta_Boton}}
+            </button>
         </div>
         <ul class="bg-dark text-warning ">
             <li v-for="item in frutas" class="pt-3 pb-3">
@@ -34,9 +35,10 @@
                          aria-valuenow="25" aria-valuemin="0"
                          aria-valuemax="100"
                          :class="colores(item.cantidad)"
-                        >{{item.cantidad + ' '}} %
+                    >{{item.cantidad + ' '}} %
                     </div>
-                </div> <hr class="bg-warning"/>
+                </div>
+                <hr class="bg-warning"/>
             </li>
 
         </ul>
