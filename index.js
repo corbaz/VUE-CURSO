@@ -15,12 +15,32 @@ const app = new Vue({
     },
     methods: {
         agregar_Fruta() {
-            this.frutas.push({
-                fruta: this.Nueva_Fruta,
-                cantidad: 0
-            });
-            this.Nueva_Fruta = '';
-        }
+            if (this.Nueva_Fruta !== null && this.Nueva_Fruta !== "") {
+                this.frutas.push({
+                    fruta: this.Nueva_Fruta,
+                    cantidad: 0
+                });
+                this.Nueva_Fruta = '';
+            } else {
+                this.Nueva_Fruta = prompt(
+                    "Ingrese una Fruta",
+                    "Cereza"
+                );
+                if (this.Nueva_Fruta == null || this.Nueva_Fruta === "") {
+                    this.Nueva_Fruta = '';
+                } else {
+                    $("#B_Nueva_Fruta").click();
+                }
+            }
+        },
+        colores(cantidad) {
+            return {
+                'bg-danger': cantidad <= 0,
+                'bg-warning': cantidad > 0 && cantidad <= 25,
+                'bg-success': cantidad > 25 && cantidad <= 50,
+                'bg-info': cantidad > 50 && cantidad <= 100
+            }
+        },
     },
     computed: {
         sumarFrutas() {
@@ -30,6 +50,6 @@ const app = new Vue({
                 this.total = this.total + fruta.cantidad;
             }
             return this.total;
-        }
+        },
     }
-})
+});
